@@ -1,5 +1,6 @@
 from itertools import permutations
 
+
 def solution(numbers):
     nums = list(numbers)
     sequences = set()
@@ -7,6 +8,7 @@ def solution(numbers):
         [sequences.add(int(''.join(x))) for x in permutations(nums, i)]
     print(sequences)
     return len([x for x in sequences if is_prime(x)])
+
 
 def is_prime(n):
     answer = False
@@ -18,6 +20,7 @@ def is_prime(n):
             answer = True
     return answer
 
-print(solution("0000")) #0
-print(solution("17")) #3
-print(solution("011")) #2
+
+print(solution("0000"))  # 0
+print(solution("17"))  # 3
+print(solution("011"))  # 2
