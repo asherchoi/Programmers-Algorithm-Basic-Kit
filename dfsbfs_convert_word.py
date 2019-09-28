@@ -21,6 +21,7 @@ def to_adj_list(words):
 
 def solution(begin, target, words):
     adj = to_adj_list([begin] + words)
+    print(adj)
     ans = 0
     queue = deque([(begin, [begin])])  # start node, path
 

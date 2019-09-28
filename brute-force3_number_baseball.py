@@ -1,13 +1,15 @@
 
 from itertools import permutations
 
+
 def solution(baseball):
     possible = [int(str(x)+str(y)+str(z)) for (x,y,z) in list(permutations(list(range(1, 10)), 3))]
     for i, p in enumerate(possible): 
         for g,s,b in baseball:       
             if not baseball_game(p, g) == (s, b):
                 possible[i] = None
-    return len([x for x in possible if x != None])
+    return len([x for x in possible if not x])
+
 
 def baseball_game(answer, guess):
     strike = len([(x,y) for (x,y) in zip(str(answer), str(guess)) if x==y])

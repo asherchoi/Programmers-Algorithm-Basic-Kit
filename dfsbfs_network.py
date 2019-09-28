@@ -1,28 +1,20 @@
 
-class Network(object):
-    def __init__(self, n, adj_matrix):
-        self.n = n
-        self.visited = [0] * n
-        self.adj_matrix = adj_matrix
-
-    def count(self):
-        count = 0
-        for i in range(self.n):
-            if not self.visited[i]:
-                self.dfs(i)
-                count += 1
-        return count
-
-    def dfs(self, i):
-        self.visited[i] = 1
-        for j in range(self.n):
-            if not self.visited[j] and self.adj_matrix[i][j]:
-                self.dfs(j)
-
 
 def solution(n, computers):
-    network = Network(n, computers)
-    return network.count()
+    def dfs(i):
+        visit[i] = 1
+        for j in range(len(computers)):
+            if computers[i][j] and not visit[j]:
+                dfs(j)
+
+    visit = [0]*len(computers)
+    count = 0
+    for i in range(n):
+        if not visit[i]:
+            count += 1
+            dfs(i)
+
+    return count
 
 
 print("#test case 1")
