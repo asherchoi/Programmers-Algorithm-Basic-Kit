@@ -3,7 +3,6 @@ def solution(s):
     longest = 0
     for i in range(0, len(s)):
         for j in range(i+1, len(s)+1):
-            #print(j - i, s[i:j])
             if is_palindrome(s[i:j]) and j - i > longest:
                 longest = j - i
     return longest
